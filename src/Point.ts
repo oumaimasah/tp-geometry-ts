@@ -1,11 +1,13 @@
 import Coordinate from "./Coordinate";
-
+import Geometry from "./Geometry";
 export default class Point {
   private coordinate?: Coordinate;
 
   constructor(coordinate?: Coordinate) {
     this.coordinate = coordinate ;
   }
+
+ 
 
   getCoordinate(): Coordinate {
     return this.coordinate;
@@ -17,6 +19,9 @@ export default class Point {
 
   y(): number {
     return this.coordinate ? this.coordinate[1] : Number.NaN ;
+  }
+  getType():string {
+    return "Point";
   }
 
 }
