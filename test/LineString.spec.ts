@@ -30,4 +30,11 @@ describe("test LineString", () => {
     expect(new LineString([new Point([0, 0]), new Point([1, 1])]).isEmpty()).to
       .be.false;
   });
+
+  it("test translate", () => {
+    const l = new LineString([new Point([0.0, 0.0]), new Point([1.0, 1.0])]);
+    l.translate(10.0, 20.0);
+    expect(l.getPointN(0).getCoordinate()).to.deep.equal([10.0, 20.0]);
+    expect(l.getPointN(1).getCoordinate()).to.deep.equal([11.0, 21.0]);
+  });
 });
