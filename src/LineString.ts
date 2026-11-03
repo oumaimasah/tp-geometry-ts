@@ -2,23 +2,24 @@ import Geometry from "./Geometry";
 import Point from "./Point";
 
 export default class LineString implements Geometry {
+private points: Point[];
 
-    private points: Point[];
-
-    constructor(points?:Point[]){
-        this.points = points ? points :[];
-    }
-
-    getType(): string {
-        return "LineString";
-    }
-
-    getNumPoints(): number {
-        return this.points.length;
-    }
-    getPointN(n: number) {
-        return this.points[n];
-    }
-
+constructor(points: Point[] = []) {
+this.points = points;
 }
 
+getType(): string {
+return "LineString";
+}
+
+getNumPoints(): number {
+return this.points.length;
+}
+
+getPointN(n: number): Point {
+return this.points[n];
+}
+isEmpty(): boolean {
+return this.points.length === 0;
+}
+}
