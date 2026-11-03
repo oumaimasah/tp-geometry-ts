@@ -33,4 +33,11 @@ describe("test Point", () => {
         p.translate(1.0, 2.0);
         expect(p.isEmpty()).to.be.true;
     });
+
+    it("test clone", () => {
+        const p = new Point([3.0, 4.0]);
+        const copy = p.clone();
+        expect(copy.x()).to.equal(p.x());
+        expect(copy.y()).to.equal(p.y());
+    });
 });
