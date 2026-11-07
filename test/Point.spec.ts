@@ -40,4 +40,15 @@ describe("test Point", () => {
         expect(copy.x()).to.equal(p.x());
         expect(copy.y()).to.equal(p.y());
     });
+     it("test getEnvelope", () => {
+        const p = new Point([3.0, 4.0]);
+        const envelope = p.getEnvelope();
+        expect(envelope.isEmpty()).to.be.false;
+        expect(envelope.toString()).to.equal("[3,4,3,4]");
+    });
+
+    it("test getEnvelope on empty point", () => {
+        const envelope = new Point().getEnvelope();
+        expect(envelope.isEmpty()).to.be.true;
+    });
 });

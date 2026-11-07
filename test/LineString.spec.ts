@@ -47,5 +47,20 @@ describe("test LineString", () => {
     expect(copy.getPointN(0)).to.deep.equal(a);
     expect(copy.getPointN(0)).to.deep.equal(a);
   });
+   it("test getEnvelope", () => {
+    const l = new LineString([
+      new Point([0.0, 1.0]),
+      new Point([2.0, 0.0]),
+      new Point([1.0, 3.0]),
+    ]);
+    const envelope = l.getEnvelope();
+    expect(envelope.isEmpty()).to.be.false;
+    expect(envelope.toString()).to.equal("[0,0,2,3]");
+  });
+
+  it("test getEnvelope on empty linestring", () => {
+    const envelope = new LineString().getEnvelope();
+    expect(envelope.isEmpty()).to.be.true;
+  });
 });
 
