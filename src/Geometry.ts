@@ -1,5 +1,6 @@
 
 import Envelope from "./Envelope";
+import GeometryVisitor from "./GeometryVisitor";
 
 export default interface Geometry {
     getType():string;
@@ -7,4 +8,5 @@ export default interface Geometry {
     translate(dx:number, dy:number):void;
     clone():Geometry;
     getEnvelope():Envelope; 
+    accept(visitor: GeometryVisitor): void;
 }
